@@ -1,0 +1,17 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+# REST calls for customers
+GET     /rest/customer              @controllers.Application.findCustomers()
+POST    /rest/customer              @controllers.Application.saveCustomer()
+GET     /rest/customer/:customerId  @controllers.Application.findCustomerById(customerId: Long)
+PUT     /rest/customer/:customerId  @controllers.Application.updateCustomer(customerId: Long)
+DELETE  /rest/customer/:customerId  @controllers.Application.deleteCustomer(customerId: Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
